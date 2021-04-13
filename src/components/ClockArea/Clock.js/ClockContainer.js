@@ -12,10 +12,10 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return ({
         updateTime: (newTime) => {
-            dispatch(updateTimeCreator(newTime))
+            dispatch(updateTimeCreator(newTime));
         },
         changeClockState: (newState) => {
-            dispatch(changeClockStateCreator(newState))
+            dispatch(changeClockStateCreator(newState));
         }
     });
 }

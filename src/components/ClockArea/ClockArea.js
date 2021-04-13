@@ -3,7 +3,7 @@ import ClockContainer from './Clock.js/ClockContainer';
 import { func, string } from "prop-types";
 import './ClockArea.css';
 
-function ClockArea({ onPause, onStop }) {
+function ClockArea({ onPause, onStop, onStart }) {
     return (
         <section className="clock-area">
             <ClockContainer />
@@ -11,7 +11,7 @@ function ClockArea({ onPause, onStop }) {
             <div className="clock-controls-wrapper">
                 <div className="clock-control clock-control-stop" onClick={() => onStop()}></div>
                 <div className="clock-control clock-control-pause" onClick={() => onPause()}></div>
-                <div className="clock-control clock-control-start"></div>
+                <div className="clock-control clock-control-start" onClick={() => onStart()}></div>
             </div>
         </section>
     );
@@ -20,7 +20,8 @@ function ClockArea({ onPause, onStop }) {
 ClockArea.propTypes = {
     currentState: string,
     onPause: func,
-    onStop: func
+    onStop: func,
+    onStart: func
 }
 
 export default ClockArea;

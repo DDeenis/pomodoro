@@ -19,6 +19,7 @@
   border-radius: 15px;
   -webkit-transition: background .3s ease;
   transition: background .3s ease;
+  z-index: 1000;
 }
 
 .clock-time {
@@ -40,10 +41,18 @@
 }
 
 .clock-theme-pause {
-  background: #F7F6E7;
+  background: #f3f4ed;
 }
 
 .clock-theme-pause .clock-time {
   color: #314E52;
+}
+
+.clock-theme-stop {
+  background: #536162;
+}
+
+.clock-theme-stop .clock-time {
+  color: #F7F6E7;
 }
 /*# sourceMappingURL=Clock.css.map */

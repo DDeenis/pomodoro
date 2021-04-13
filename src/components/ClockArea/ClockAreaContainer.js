@@ -15,6 +15,10 @@ function mapDispatchToProps(dispatch) {
         },
         onPause: () => {
             dispatch(changeClockStateCreator(clockStates.PAUSE))
+        },
+        onStart: () => {
+            // CHANGE THIS
+            dispatch(changeClockStateCreator(clockStates.WORK))
         }
     });
 }

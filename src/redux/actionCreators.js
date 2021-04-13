@@ -24,8 +24,6 @@ function changeClockStateCreator(newState) {
     });
 }
 
-
-
 export {
     actionTypes,
     clockStates,

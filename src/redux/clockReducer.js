@@ -1,8 +1,8 @@
 import { actionTypes } from "./actionCreators";
 
 function formatTime(minutes, seconds) {
-    if(minutes.lenght < 2) minutes = '0' + minutes;
-    if(seconds.lenght < 2) seconds = '0' + seconds;
+    if((minutes + '').length < 2) minutes = '0' + minutes;
+    if((seconds + '').length < 2) seconds = '0' + seconds;
 
     return minutes + ':' + seconds;
 }

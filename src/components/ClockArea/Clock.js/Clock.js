@@ -1,11 +1,15 @@
 import React from 'react';
 import './Clock.css';
 import { string, func } from "prop-types";
+import { clockStates } from '../../../redux/actionCreators';
 
 // eslint-disable-next-line no-unused-vars
 function Clock({ timeLeft, clockState, updateTime, changeClockState }) {
-    setInterval(() => updateTime(new Date()), 1000);
-    
+    console.log(clockState);
+    if(clockState != clockStates.PAUSE && clockState != clockStates.STOP) {
+        setTimeout(() => updateTime(new Date()), 1000);
+    }
+
     return (
         <div className={`clock-wrapper clock-theme-${clockState}`}>
             <div className='clock-time-block'>
