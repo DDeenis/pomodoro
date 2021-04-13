@@ -1,6 +1,7 @@
 const actionTypes = Object.freeze({
     UPDATE_TIME: 'UPDATE_TIME',
-    CHANGE_CLOCK_STATE: 'CHANGE_CLOCK_STATE'
+    CHANGE_CLOCK_STATE: 'CHANGE_CLOCK_STATE',
+    CHANGE_PROGRESS_BAR_STATE: 'CHANGE_PROGRESS_BAR_STATE'
 });
 
 const clockStates = Object.freeze({
@@ -24,9 +25,18 @@ function changeClockStateCreator(newState) {
     });
 }
 
+function changeProgressBarCreator(width, clockState) {
+    return ({
+        type: actionTypes.CHANGE_PROGRESS_BAR_STATE,
+        clockState,
+        width
+    });
+}
+
 export {
     actionTypes,
     clockStates,
     updateTimeCreator,
-    changeClockStateCreator
+    changeClockStateCreator,
+    changeProgressBarCreator
 }
