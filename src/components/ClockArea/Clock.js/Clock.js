@@ -1,19 +1,18 @@
 import React from 'react';
 import './Clock.css';
-import { string, func } from "prop-types";
+import { string, func, number } from "prop-types";
 import { clockStates } from '../../../redux/actionCreators';
 
 // eslint-disable-next-line no-unused-vars
-function Clock({ timeLeft, clockState, updateTime, changeClockState }) {
-    console.log(clockState);
-    if(clockState != clockStates.PAUSE && clockState != clockStates.STOP) {
-        setTimeout(() => updateTime(new Date()), 1000);
+function Clock(props) {
+    if(props.clockState != clockStates.PAUSE && props.clockState != clockStates.STOP) {
+        setTimeout(() => props.updateTime(props.currentTime + 1), 1000);
     }
 
     return (
-        <div className={`clock-wrapper clock-theme-${clockState}`}>
+        <div className={`clock-wrapper clock-theme-${props.clockState}`}>
             <div className='clock-time-block'>
-                <span className="clock-time">{ timeLeft }</span>
+                <span className="clock-time">{ props.timeLeft }</span>
             </div>
         </div>
     );
@@ -22,8 +21,8 @@ function Clock({ timeLeft, clockState, updateTime, changeClockState }) {
 Clock.propTypes = {
     timeLeft: string,
     clockState: string,
-    updateTime: func,
-    changeClockState: func
+    currentTime: number,
+    updateTime: func
 }
 
 export default Clock;

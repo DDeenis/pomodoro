@@ -25,10 +25,9 @@ function changeClockStateCreator(newState) {
     });
 }
 
-function changeProgressBarCreator(width, clockState) {
+function changeProgressBarCreator(width) {
     return ({
         type: actionTypes.CHANGE_PROGRESS_BAR_STATE,
-        clockState,
         width
     });
 }

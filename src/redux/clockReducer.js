@@ -1,4 +1,4 @@
-import { actionTypes } from "./actionCreators";
+import { actionTypes, clockStates } from "./actionCreators";
 
 function formatTime(minutes, seconds) {
     if((minutes + '').length < 2) minutes = '0' + minutes;
@@ -7,13 +7,50 @@ function formatTime(minutes, seconds) {
     return minutes + ':' + seconds;
 }
 
+function getSeconds(seconds) {
+    return seconds % 60;
+}
+
+function getMinutes(seconds) {
+    return Math.floor(seconds / 60);
+}
+
 const initialState = {
-    timeLeftFormatted: formatTime(new Date().getMinutes(), new Date().getSeconds()),
-    clockState: 'work'
+    timeLeftFormatted: formatTime(0, 0),
+    clockState: clockStates.WORK,
+    currentTime: 0
 };
 
+const workTimeSeconds = 5;
+const restTimeSeconds = 3;
+// const workTimeSeconds = 1500;
+// const restTimeSeconds = 300;
+
 function updateTime(state, newTime) {
-    return {...state, timeLeftFormatted: formatTime(newTime.getMinutes(), newTime.getSeconds())};
+    let newState = '';
+
+    // if(newTime < workTimeSeconds && state.clockState === clockStates.WORK) {
+    //     newState = clockStates.WORK;
+    // } else {
+    //     newState = clockStates.REST;
+    // }
+
+    console.log(newTime)
+    console.log(state.clockState)
+    if(newTime >= workTimeSeconds && state.clockState === clockStates.WORK) {
+        newState = clockStates.REST;
+    } else {
+        newState = clockStates.WORK;
+    }
+
+    let resetTime = newTime;
+
+    if((newTime >= workTimeSeconds && state.clockState === clockStates.WORK)
+        || (newTime >= restTimeSeconds && state.clockState === clockStates.REST)) {
+        resetTime = 0;
+    }
+
+    return {...state, timeLeftFormatted: formatTime(getMinutes(newTime), getSeconds(newTime)), currentTime: resetTime, clockState: newState};
 }
 
 function changeClockState(state, newState) {
