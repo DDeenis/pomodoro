@@ -11,7 +11,7 @@ function ProgressBar({ width, state, changeWidth, currentTime, totalTime }) {
     useEffect(() => {
         const id = setTimeout(() => changeWidth(Math.round(currentTime / totalTime * 100)), 1000);
 
-        return () => clearInterval(id);
+        return () => clearTimeout(id);
     });
 
     const progressStyle = {

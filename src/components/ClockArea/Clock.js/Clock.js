@@ -12,7 +12,7 @@ function Clock(props) {
             id = setTimeout(updateTime, 1000);
         }
 
-        return () => clearInterval(id);
+        return () => clearTimeout(id);
     });
 
     return (
