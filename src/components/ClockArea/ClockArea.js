@@ -7,7 +7,6 @@ function ClockArea({ onPause, onStop, onStart }) {
     return (
         <section className="clock-area">
             <ClockContainer />
-
             <div className="clock-controls-wrapper">
                 <div className="clock-control clock-control-stop" onClick={() => onStop()}></div>
                 <div className="clock-control clock-control-pause" onClick={() => onPause()}></div>

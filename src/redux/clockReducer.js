@@ -18,39 +18,32 @@ function getMinutes(seconds) {
 const initialState = {
     timeLeftFormatted: formatTime(0, 0),
     clockState: clockStates.WORK,
+    lastState: clockStates.REST,
     currentTime: 0
 };
 
-const workTimeSeconds = 5;
-const restTimeSeconds = 3;
-// const workTimeSeconds = 1500;
-// const restTimeSeconds = 300;
+// const workTimeSeconds = 5;
+// const restTimeSeconds = 3;
+const workTimeSeconds = 1500;
+const restTimeSeconds = 300;
 
-function updateTime(state, newTime) {
-    let newState = '';
+function updateClock(state, time, currentState, lastState) {
+    let newState = currentState;
+    let newTime = time;
+    const waitSeconds = currentState === clockStates.WORK ? workTimeSeconds : restTimeSeconds;
 
-    // if(newTime < workTimeSeconds && state.clockState === clockStates.WORK) {
-    //     newState = clockStates.WORK;
-    // } else {
-    //     newState = clockStates.REST;
-    // }
-
-    console.log(newTime)
-    console.log(state.clockState)
-    if(newTime >= workTimeSeconds && state.clockState === clockStates.WORK) {
-        newState = clockStates.REST;
-    } else {
-        newState = clockStates.WORK;
+    if(time > waitSeconds) {
+        newState = currentState === clockStates.WORK ? clockStates.REST : clockStates.WORK;
+        newTime = 0;
     }
 
-    let resetTime = newTime;
-
-    if((newTime >= workTimeSeconds && state.clockState === clockStates.WORK)
-        || (newTime >= restTimeSeconds && state.clockState === clockStates.REST)) {
-        resetTime = 0;
-    }
-
-    return {...state, timeLeftFormatted: formatTime(getMinutes(newTime), getSeconds(newTime)), currentTime: resetTime, clockState: newState};
+    return { 
+        ...state, 
+        timeLeftFormatted: formatTime(getMinutes(newTime), getSeconds(newTime)), 
+        currentTime: newTime, 
+        clockState: newState,
+        lastState
+    };
 }
 
 function changeClockState(state, newState) {
@@ -60,7 +53,7 @@ function changeClockState(state, newState) {
 export default function clockReducer(state = initialState, action) {
     switch (action.type) {
         case actionTypes.UPDATE_TIME:
-            return updateTime(state, action.time);
+            return updateClock(state, action.time, state.clockState);
 
         case actionTypes.CHANGE_CLOCK_STATE:
             return changeClockState(state, action.clockState);
