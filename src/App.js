@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import ClockAreaContainer from './components/ClockArea/ClockAreaContainer';
+import ProgressBarArea from './components/ProgressBarArea/ProgressBarArea';
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
       <main>
         <ClockAreaContainer />
       </main>
+
+      <ProgressBarArea />
     </div>
   );
 }

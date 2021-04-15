@@ -1,12 +1,27 @@
-import React from 'react';
-import { number, func } from "prop-types";
+import React, { useEffect } from 'react';
+import { number, func, string } from "prop-types";
 import './ProgressBar.css';
+import { clockStates } from '../../../redux/actionCreators';
 
-// eslint-disable-next-line no-unused-vars
-function ProgressBar({ width, changeWidth }) {
+function ProgressBar({ width, state, changeWidth, currentTime, totalTime }) {
+    currentTime = currentTime % 2 === 0 ? currentTime : currentTime + 2;
+
+    console.log(currentTime + 1, totalTime);
+    console.log((currentTime + 1) / totalTime * 100);
+    useEffect(() => {
+        const id = setTimeout(() => changeWidth(Math.ceil(currentTime / totalTime * 100)), 1000);
+
+        return () => clearInterval(id);
+    });
+
+    const progressStyle = {
+        width: width + '%',
+        background: state === clockStates.WORK ? '#ABDF81' : '#536162'
+    }
+
     return (
         <div className="progress-bar-wrapper">
-            <div className="progress-bar-filled"></div>
+            <div className="progress-bar-filled" style={progressStyle}></div>
             <div className="progress-bar-empty"></div>
         </div>
     );
@@ -14,7 +29,10 @@ function ProgressBar({ width, changeWidth }) {
 
 ProgressBar.propTypes = {
     width: number,
-    changeWidth: func
+    changeWidth: func,
+    currentTime: number,
+    totalTime: number,
+    state: string
 }
 
 export default ProgressBar;

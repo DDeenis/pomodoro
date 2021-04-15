@@ -22,15 +22,18 @@ const initialState = {
     currentTime: 0
 };
 
-// const workTimeSeconds = 5;
-// const restTimeSeconds = 3;
-const workTimeSeconds = 1500;
-const restTimeSeconds = 300;
+
+export const clockTimers = {
+    // workTimeSeconds: 5,
+    // restTimeSeconds: 3
+    workTimeSeconds: 1500,
+    restTimeSeconds: 300
+}
 
 function updateClock(state, time, currentState, lastState) {
     let newState = currentState;
     let newTime = time;
-    const waitSeconds = currentState === clockStates.WORK ? workTimeSeconds : restTimeSeconds;
+    const waitSeconds = currentState === clockStates.WORK ? clockTimers.workTimeSeconds : clockTimers.restTimeSeconds;
 
     if(time > waitSeconds) {
         newState = currentState === clockStates.WORK ? clockStates.REST : clockStates.WORK;

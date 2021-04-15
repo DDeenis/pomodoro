@@ -37,11 +37,11 @@
 }
 
 .clock-theme-rest {
-  background: #314E52;
+  background: #536162;
 }
 
 .clock-theme-pause {
-  background: #f3f4ed;
+  background: #F7F6E7;
 }
 
 .clock-theme-pause .clock-time {
@@ -49,7 +49,7 @@
 }
 
 .clock-theme-stop {
-  background: #536162;
+  background: #314E52;
 }
 
 .clock-theme-stop .clock-time {

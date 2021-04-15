@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,CAAC;EACT,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,IAAI;EACZ,UAAU,EAAE,GAAG,CAAC,GAAG,CAAC,IAAI,CAAC,kBAAkB;EAC3C,aAAa,EAAE,iBAAiB;EAChC,MAAM,EAAE,OAAO;CAClB",
+    "sources": [
+        "MenuButton.scss"
+    ],
+    "names": [],
+    "file": "MenuButton.css"
+}
