@@ -9,7 +9,7 @@ function ProgressBar({ width, state, changeWidth, currentTime, totalTime }) {
     console.log(currentTime + 1, totalTime);
     console.log((currentTime + 1) / totalTime * 100);
     useEffect(() => {
-        const id = setTimeout(() => changeWidth(Math.ceil(currentTime / totalTime * 100)), 1000);
+        const id = setTimeout(() => changeWidth(Math.round(currentTime / totalTime * 100)), 1000);
 
         return () => clearInterval(id);
     });

@@ -1,28 +1,24 @@
-import { connect } from "react-redux";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeClockStateCreator, clockStates } from "../../redux/actionCreators";
 import ClockArea from "./ClockArea";
 
-function mapStateToProps(state) {
-    return ({
-        currentState: state.clock.clockState
-    });
-}
+function ClockAreaContainer() {
+    const currentState = useSelector(state => state.clock.clockState);
+    const dispatch = useDispatch();
 
-function mapDispatchToProps(dispatch) {
-    return ({
-        onStop: () => {
-            dispatch(changeClockStateCreator(clockStates.STOP))
-        },
-        onPause: () => {
-            dispatch(changeClockStateCreator(clockStates.PAUSE))
-        },
-        onStart: () => {
-            // CHANGE THIS
-            dispatch(changeClockStateCreator(clockStates.WORK))
-        }
-    });
-}
+    const onStop = () => dispatch(changeClockStateCreator(clockStates.STOP));
+    const onPause = () => dispatch(changeClockStateCreator(clockStates.PAUSE));
+    const onStart = () => dispatch(changeClockStateCreator(clockStates.WORK));
 
-const ClockAreaContainer = connect(mapStateToProps, mapDispatchToProps)(ClockArea);
+    return (
+        <ClockArea
+            currentState={currentState}
+            onStop={onStop}
+            onPause={onPause}
+            onStart={onStart}
+        />
+    );
+}
 
 export default ClockAreaContainer;

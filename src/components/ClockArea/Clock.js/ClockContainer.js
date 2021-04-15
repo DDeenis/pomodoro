@@ -1,23 +1,22 @@
-import { connect } from "react-redux";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateTimeCreator } from "../../../redux/actionCreators";
 import Clock from "./Clock";
 
-function mapStateToProps(state) {
-    return ({
-        clockState: state.clock.clockState,
-        timeLeft: state.clock.timeLeftFormatted,
-        currentTime: state.clock.currentTime
-    });
-}
+function ClockContainer() {
+    const { clockState, timeLeftFormatted, currentTime } = useSelector(state => state.clock)
+    const dispatch = useDispatch();
 
-function mapDispatchToProps(dispatch) {
-    return ({
-        updateTime: (newTime) => {
-            dispatch(updateTimeCreator(newTime));
-        }
-    });
-}
+    const updateTime = (newTime) => dispatch(updateTimeCreator(newTime));
 
-const ClockContainer = connect(mapStateToProps, mapDispatchToProps)(Clock);
+    return (
+        <Clock
+            clockState={clockState}
+            timeLeft={timeLeftFormatted}
+            currentTime={currentTime}
+            updateTime={updateTime}
+        />
+    );
+}
 
 export default ClockContainer;
