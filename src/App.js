@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
 import ClockAreaContainer from './components/ClockArea/ClockAreaContainer';
+import HeaderArea from './components/HeaderArea/HeaderArea';
 import ProgressBarArea from './components/ProgressBarArea/ProgressBarArea';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        {/* TaskBar */}
+      <header>
+        <HeaderArea />
       </header>
 
       <main>

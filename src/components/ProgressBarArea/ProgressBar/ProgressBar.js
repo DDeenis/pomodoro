@@ -4,12 +4,12 @@ import './ProgressBar.css';
 import { clockStates } from '../../../redux/actionCreators';
 
 function ProgressBar({ width, state, changeWidth, currentTime, totalTime }) {
-    currentTime = currentTime % 2 === 0 ? currentTime : currentTime + 2;
+    currentTime = currentTime % 2 === 0 ? currentTime : currentTime + 1;
 
     console.log(currentTime + 1, totalTime);
     console.log((currentTime + 1) / totalTime * 100);
     useEffect(() => {
-        const id = setTimeout(() => changeWidth(Math.round(currentTime / totalTime * 100)), 1000);
+        const id = setTimeout(() => changeWidth(Math.round((currentTime + 1) / totalTime * 100)), 1000);
 
         return () => clearTimeout(id);
     });
