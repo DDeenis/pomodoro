@@ -2,14 +2,14 @@ import React, { useEffect, useRef } from 'react';
 import './TaskDescription.css';
 
 function TaskDescription() {
-    const ref = useRef();
+    const descrBlock = useRef();
     useEffect(() => {
-        ref.current.addEventListener('mouseenter', () => ref.current.style = 'height: 160px;');
-        ref.current.addEventListener('mouseleave', () => ref.current.style = 'height: 76px;');
+        descrBlock.current.addEventListener('mouseenter', () => descrBlock.current.style = 'height: 236px;');
+        descrBlock.current.addEventListener('mouseleave', () => descrBlock.current.style = 'height: 76px;');
     }, []);
 
     return (
-        <div className='task-description' ref={ref}>
+        <div className='task-description' ref={descrBlock}>
             <span className='task-description-text' contentEditable>Write your notes here.</span>
         </div>
     );
