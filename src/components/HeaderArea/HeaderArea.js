@@ -1,14 +1,14 @@
 import React from 'react';
-import './HeaderArea.css';
+import { HeaderBlock } from './styled';
 import TaskDescription from './TaskDescription/TaskDescription';
 import TaskProgress from './TaskProgress/TaskProgress';
 
 function HeaderArea() {
     return (
-        <section className="header-block">
+        <HeaderBlock>
             <TaskDescription />
             <TaskProgress />
-        </section>
+        </HeaderBlock>
     );
 }
 

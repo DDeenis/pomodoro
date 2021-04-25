@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeClockStateCreator, clockStates } from '../../../redux/actionCreators';
 import MenuButton from '../MenuButton/MenuButton';
-import './ButtonsMenu.css';
+import { ButtonsMenuWrapper } from './styled';
 
 function ButtonsMenu() {
     const clockState = useSelector(state => state.clock.clockState);
@@ -15,11 +15,11 @@ function ButtonsMenu() {
     const onStart = () => dispatch(changeClockStateCreator(clockStates.WORK));
 
     return (
-        <div className='buttons-menu'>
+        <ButtonsMenuWrapper>
             <MenuButton background='#314E52' text="Stop" textColor='#F2A154' onClick={onStop} />
             <MenuButton background={middleBtnBackground} text={middleBtnText} textColor='#F7F6E7' onClick={() => {}} />
             <MenuButton background='#F2A154' text="Start" textColor='#314E52' onClick={onStart} />
-        </div>
+        </ButtonsMenuWrapper>
     );
 }
 

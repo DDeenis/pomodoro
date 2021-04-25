@@ -23,12 +23,12 @@ const initialState = {
 };
 
 
-export const clockTimers = {
+export const clockTimers = Object.freeze({
     // workTimeSeconds: 5,
     // restTimeSeconds: 3
     workTimeSeconds: 1500,
     restTimeSeconds: 300
-}
+});
 
 function updateClock(state, time, currentState, lastState) {
     let newState = currentState;
@@ -37,6 +37,7 @@ function updateClock(state, time, currentState, lastState) {
 
     if(time > waitSeconds) {
         newState = currentState === clockStates.WORK ? clockStates.REST : clockStates.WORK;
+        lastState = currentState;
         newTime = 0;
     }
 

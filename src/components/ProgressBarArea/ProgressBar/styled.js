@@ -1,22 +1,24 @@
-.progress-bar-wrapper {
+import styled from 'styled-components';
+
+export const ProgressBarWrapper = styled.div`
     position: relative;
     width: 80vw;
     height: 92px;
-}
+`;
 
-.progress-bar-filled {
+export const ProgressBarFilled = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    width: 10%;
+    width: ${props => props.progressWidth}%;
     height: 100%;
-    background: #ABDF81;
+    background: ${props => props.progressBackground};
     transition: background .3s ease, width .3s ease;
     border-radius: 12px;
     z-index: 1;
-}
+`;
 
-.progress-bar-empty {
+export const ProgressBarEmpty = styled.div`
     position: absolute;
     top: 0;
     left: 0;
@@ -26,4 +28,4 @@
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
     border-radius: 12px;
     z-index: -1;
-}
+`;

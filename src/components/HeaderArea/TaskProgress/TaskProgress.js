@@ -1,11 +1,9 @@
 import React, { useEffect, useRef } from 'react';
-import './TaskProgress.css';
-
 import TomatoFull from '../../../images/tomato-vector-16_full.svg';
 import TomatoSlice from '../../../images/tomato-vector-16_slice.svg';
+import { TaskProgressWrapper, TaskProgressBlock, TaskProgressText } from './styled';
 
-// eslint-disable-next-line no-unused-vars
-function TaskProgress(props) {
+function TaskProgress() {
     const progressBlock = useRef();
     useEffect(() => {
         progressBlock.current.addEventListener('mouseenter', () => progressBlock.current.style = 'height: 156px;');
@@ -13,17 +11,16 @@ function TaskProgress(props) {
     }, []);
 
     return (
-        <div className='task-progress' ref={progressBlock}>
-            <div className='task-progress-full'>
+        <TaskProgressWrapper ref={progressBlock}>
+            <TaskProgressBlock>
                 <img className='task-progress-full-img' src={TomatoFull} />
-                <p className='task-progress-text'>1</p>
-            </div>
-
-            <div className='task-progress-partial'>
+                <TaskProgressText>1</TaskProgressText>
+            </TaskProgressBlock>
+            <TaskProgressBlock>
                 <img className='task-progress-full-img' src={TomatoSlice} />
-                <p className='task-progress-text'>1</p>
-            </div>
-        </div>
+                <TaskProgressText>1</TaskProgressText>
+            </TaskProgressBlock>
+        </TaskProgressWrapper>
     );
 }
 

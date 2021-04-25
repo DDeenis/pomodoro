@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import './TaskDescription.css';
+import { TaskDescriptionWrapper, TaskDescriptionText } from './styled';
 
 function TaskDescription() {
     const descrBlock = useRef();
@@ -9,9 +9,9 @@ function TaskDescription() {
     }, []);
 
     return (
-        <div className='task-description' ref={descrBlock}>
-            <span className='task-description-text' contentEditable>Write your notes here.</span>
-        </div>
+        <TaskDescriptionWrapper ref={descrBlock}>
+            <TaskDescriptionText contentEditable>Write your notes here.</TaskDescriptionText>
+        </TaskDescriptionWrapper>
     );
 }
 

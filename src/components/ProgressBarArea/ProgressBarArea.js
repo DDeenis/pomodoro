@@ -4,7 +4,7 @@ import { changeProgressBarCreator, clockStates } from '../../redux/actionCreator
 import { clockTimers } from '../../redux/clockReducer';
 import ButtonsMenu from './ButtonsMenu/ButtonsMenu';
 import ProgressBar from './ProgressBar/ProgressBar';
-import './ProgressBarArea.css';
+import { ProgressBarSection } from './styled';
 
 function ProgressBarArea() {
     const state = useSelector(state => state);
@@ -15,7 +15,7 @@ function ProgressBarArea() {
     const changeWidth = useCallback((width) => dispatch(changeProgressBarCreator(width)));
 
     return (
-        <section className='progress-bar-section'>
+        <ProgressBarSection>
             <ButtonsMenu />
             <ProgressBar 
                 width={state.progressBar.progressWidth} 
@@ -24,7 +24,7 @@ function ProgressBarArea() {
                 currentTime={state.clock.currentTime}
                 totalTime={clockState === clockStates.WORK ? clockTimers.workTimeSeconds : clockTimers.restTimeSeconds}
             />
-        </section>
+        </ProgressBarSection>
     );
 }
 

@@ -1,4 +1,6 @@
-.task-description {
+import styled from 'styled-components';
+
+export const TaskDescriptionWrapper = styled.div`
     width: 415px;
     height: 78px;
     background: #E7E6E1;
@@ -13,9 +15,9 @@
     position: absolute;
     top: 30%;
     left: 0;
-}
+`;
 
-.task-description-text {
+export const TaskDescriptionText = styled.span`
     font-family: 'Roboto';
     font-style: normal;
     font-weight: normal;
@@ -24,7 +26,4 @@
     width: 90%;
     height: 100%;
     margin: 21px 34px;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-}
+`;

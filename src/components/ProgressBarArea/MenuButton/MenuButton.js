@@ -1,20 +1,12 @@
 import React from 'react';
 import { string, func } from "prop-types";
-import './MenuButton.css';
+import { MenuButtonText, MenuButtonWrapper } from './styled';
 
 function MenuButton({ background, text, textColor, onClick }) {
-    const buttonStyle = {
-        background: background
-    };
-
-    const textStyle = {
-        color: textColor
-    };
-
     return (
-        <div className='menu-button' style={buttonStyle} onClick={() => onClick()}>
-            <span className='menu-button-text' style={textStyle}>{text}</span>
-        </div>
+        <MenuButtonWrapper backgroundColor={background} onClick={() => onClick()}>
+            <MenuButtonText textColor={textColor}>{ text }</MenuButtonText>
+        </MenuButtonWrapper>
     );
 }
 

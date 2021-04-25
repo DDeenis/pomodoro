@@ -1,4 +1,13 @@
-.task-progress {
+import styled from 'styled-components';
+
+export const TaskProgressBlock = styled.div`
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+`;
+
+export const TaskProgressWrapper = styled.div`
     width: 231px;
     height: 78px;
     background: #E7E6E1;
@@ -14,17 +23,9 @@
     & > * {
         margin: 3px 15px;
     }
-}
+`;
 
-.task-progress-full,
-.task-progress-partial {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.task-progress-text {
+export const TaskProgressText = styled.p`
     font-family: 'Roboto';
     font-style: normal;
     font-weight: normal;
@@ -32,4 +33,4 @@
     color: #000000;
     align-self: center;
     justify-self: center;
-}
+`;
