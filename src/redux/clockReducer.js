@@ -1,5 +1,17 @@
 import { actionTypes, clockStates } from "./actionCreators";
 
+const initialState = {
+    timeLeftFormatted: formatTime(0, 0),
+    clockState: clockStates.WORK,
+    lastState: clockStates.REST,
+    currentTime: 0
+};
+
+export const clockTimers = Object.freeze({
+    workTimeSeconds: 1500,
+    restTimeSeconds: 300
+});
+
 function formatTime(minutes, seconds) {
     if((minutes + '').length < 2) minutes = '0' + minutes;
     if((seconds + '').length < 2) seconds = '0' + seconds;
@@ -14,21 +26,6 @@ function getSeconds(seconds) {
 function getMinutes(seconds) {
     return Math.floor(seconds / 60);
 }
-
-const initialState = {
-    timeLeftFormatted: formatTime(0, 0),
-    clockState: clockStates.WORK,
-    lastState: clockStates.REST,
-    currentTime: 0
-};
-
-
-export const clockTimers = Object.freeze({
-    // workTimeSeconds: 5,
-    // restTimeSeconds: 3
-    workTimeSeconds: 1500,
-    restTimeSeconds: 300
-});
 
 function updateClock(state, time, currentState, lastState) {
     let newState = currentState;

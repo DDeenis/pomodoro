@@ -10,6 +10,11 @@ export const MenuButtonWrapper = styled.div`
     border-radius: 12px 12px 0px 0px;
     cursor: pointer;
     background-color: ${props => props.backgroundColor};
+    transition: .1s ease;
+
+    &:active {
+        transform: scale(0.95);
+    }
 `;
 
 export const MenuButtonText = styled.span`

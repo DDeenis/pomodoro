@@ -48,4 +48,9 @@ export const ClockControl = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     background-size: 60%;
+    transition: .1s ease;
+
+    &:active {
+        transform: scale(0.95);
+    }
 `;
