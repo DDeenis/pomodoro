@@ -1,41 +1,39 @@
-const actionTypes = Object.freeze({
+export const actionTypes = Object.freeze({
     UPDATE_TIME: 'UPDATE_TIME',
     CHANGE_CLOCK_STATE: 'CHANGE_CLOCK_STATE',
-    CHANGE_PROGRESS_BAR_STATE: 'CHANGE_PROGRESS_BAR_STATE'
+    CHANGE_PROGRESS_BAR_STATE: 'CHANGE_PROGRESS_BAR_STATE',
+    SET_TOMATOES_FULL: 'SET_TOMATOES_FULL',
+    SET_TOMATO_SLICES: 'SET_TOMATO_SLICES'
 });
 
-const clockStates = Object.freeze({
+export const clockStates = Object.freeze({
     WORK: 'work',
     REST: 'rest',
     PAUSE: 'pause',
     STOP: 'stop'
 });
 
-function updateTimeCreator(newTime) {
-    return ({
-        type: actionTypes.UPDATE_TIME,
-        time: newTime
-    });
-}
+export const updateTimeCreator = (newTime) => ({
+    type: actionTypes.UPDATE_TIME,
+    time: newTime
+});
 
-function changeClockStateCreator(newState) {
-    return ({
-        type: actionTypes.CHANGE_CLOCK_STATE,
-        clockState: newState
-    });
-}
+export const changeClockStateCreator = (newState) => ({
+    type: actionTypes.CHANGE_CLOCK_STATE,
+    clockState: newState
+});
 
-function changeProgressBarCreator(width) {
-    return ({
-        type: actionTypes.CHANGE_PROGRESS_BAR_STATE,
-        width
-    });
-}
+export const changeProgressBarCreator = (width) => ({
+    type: actionTypes.CHANGE_PROGRESS_BAR_STATE,
+    width
+});
 
-export {
-    actionTypes,
-    clockStates,
-    updateTimeCreator,
-    changeClockStateCreator,
-    changeProgressBarCreator
-}
+export const setTomatoesFullCreator = (newValue) => ({
+    type: actionTypes.SET_TOMATOES_FULL,
+    newValue
+});
+
+export const setTomatoSlicesCreator = (newValue) => ({
+    type: actionTypes.SET_TOMATO_SLICES,
+    newValue
+});

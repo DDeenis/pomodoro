@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeClockStateCreator, clockStates } from '../../../redux/actionCreators';
+import { changeClockStateCreator, clockStates, updateTimeCreator } from '../../../redux/actionCreators';
 import MenuButton from '../MenuButton/MenuButton';
 import { ButtonsMenuWrapper } from './styled';
 
@@ -11,7 +11,10 @@ function ButtonsMenu() {
     const middleBtnBackground = clockState === clockStates.WORK ? '#ABDF81' : '#536162';
     const middleBtnText = clockState === clockStates.WORK ? 'Work' : 'Rest';
 
-    const onStop = () => dispatch(changeClockStateCreator(clockStates.STOP));
+    const onStop = () => {
+        dispatch(changeClockStateCreator(clockStates.STOP));
+        dispatch(updateTimeCreator(0));
+    };
     const onStart = () => dispatch(changeClockStateCreator(clockStates.WORK));
 
     return (
