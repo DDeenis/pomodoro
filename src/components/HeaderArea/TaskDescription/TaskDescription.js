@@ -10,7 +10,7 @@ function TaskDescription() {
 
     return (
         <TaskDescriptionWrapper ref={descrBlock}>
-            <TaskDescriptionText contentEditable>Write your notes here.</TaskDescriptionText>
+            <TaskDescriptionText placeholder='Write your notes here.'></TaskDescriptionText>
         </TaskDescriptionWrapper>
     );
 }

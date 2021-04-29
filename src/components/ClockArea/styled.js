@@ -3,12 +3,18 @@ import styled from 'styled-components';
 import Play from '../../images/play-button.svg';
 import Stop from '../../images/stop.svg';
 import Pause from '../../images/pause.svg';
+import { device } from '../../media';
 
 export const ClockAreaWrapper = styled.section`
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
+
+    @media ${device.mobileM} {
+        display: unset;
+        flex-direction: row;
+    }
 `;
 
 export const ClockControlsWrapper = styled.div`
@@ -17,6 +23,13 @@ export const ClockControlsWrapper = styled.div`
     display: flex;
     flex-flow: column wrap;
     justify-content: space-between;
+
+    @media ${device.mobileM} {
+        padding: 5px;
+        flex-flow: row nowrap;
+        width: 95vw;
+        margin: 10px 0;
+    }
 `;
 
 export const ClockControl = styled.div`
@@ -52,5 +65,12 @@ export const ClockControl = styled.div`
 
     &:active {
         transform: scale(0.95);
+    }
+
+    @media ${device.mobileM} {
+        width: 27vw;
+        height: 12vh;
+        border-radius: 10px;
+        background-size: 30%;
     }
 `;

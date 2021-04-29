@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../../media';
 import { clockStates } from '../../../redux/actionCreators';
 
 export const ClockWrapper = styled.div`
@@ -24,6 +25,11 @@ export const ClockWrapper = styled.div`
                 return '#ABDF81';
         }
     }};
+
+    @media ${device.mobileM} {
+        width: 95vw;
+        margin: 5px;
+    }
 `;
 
 // nothing here
@@ -40,4 +46,8 @@ export const ClockTime = styled.span`
     color: #F7F6E7;
     transition: color .3s ease;
     color: ${props => props.clockState === clockStates.PAUSE ? '#314E52' : '#F7F6E7'};
+
+    @media ${device.mobileM} {
+        font-size: 7rem;
+    }
 `;

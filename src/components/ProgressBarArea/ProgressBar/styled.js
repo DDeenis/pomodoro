@@ -1,9 +1,14 @@
 import styled from 'styled-components';
+import { device } from '../../../media';
 
 export const ProgressBarWrapper = styled.div`
     position: relative;
     width: 80vw;
     height: 92px;
+
+    @media ${device.mobileM} {
+        width: 95vw;
+    }
 `;
 
 export const ProgressBarFilled = styled.div`

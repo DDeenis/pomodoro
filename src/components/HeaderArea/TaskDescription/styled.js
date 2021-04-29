@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../../media';
 
 export const TaskDescriptionWrapper = styled.div`
     width: 415px;
@@ -15,14 +16,23 @@ export const TaskDescriptionWrapper = styled.div`
     position: absolute;
     top: 30%;
     left: 0;
+
+    @media ${device.mobileM} {
+        position: unset;
+        width: 90vw;
+        margin: 10px;
+    }
 `;
 
-export const TaskDescriptionText = styled.span`
+export const TaskDescriptionText = styled.textarea`
     font-family: 'Roboto';
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
     color: #000000;
+    background: #E7E6E1;
+    resize: none;
+    border: 0;
     width: 90%;
     height: 100%;
     margin: 21px 34px;

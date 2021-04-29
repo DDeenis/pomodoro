@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../../media';
 
 export const TaskProgressBlock = styled.div`
     display: flex;
@@ -22,6 +23,12 @@ export const TaskProgressWrapper = styled.div`
 
     & > * {
         margin: 3px 15px;
+    }
+
+    @media ${device.mobileM} {
+        position: unset;
+        width: 90vw;
+        margin: 10px;
     }
 `;
 
