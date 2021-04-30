@@ -11,10 +11,13 @@ function ButtonsMenu() {
     const middleBtnBackground = clockState === clockStates.WORK ? '#ABDF81' : '#536162';
     const middleBtnText = clockState === clockStates.WORK ? 'Work' : 'Rest';
 
+    // redux-saga
     const onStop = () => {
         dispatch(changeClockStateCreator(clockStates.STOP));
         dispatch(updateTimeCreator(0));
     };
+
+    // clockState ???
     const onStart = () => dispatch(changeClockStateCreator(clockStates.WORK));
 
     return (

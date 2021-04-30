@@ -2,7 +2,6 @@ import React from 'react';
 import ClockContainer from './Clock.js/ClockContainer';
 import { func } from "prop-types";
 import { ClockControlsWrapper, ClockAreaWrapper, ClockControl } from './styled';
-// import './ClockArea.css';
 
 function ClockArea({ onPause, onStop, onStart }) {
     return (

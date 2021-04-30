@@ -6,6 +6,7 @@ import { ProgressBarEmpty, ProgressBarFilled, ProgressBarWrapper } from './style
 function ProgressBar({ width, state, changeWidth, currentTime, totalTime }) {
     currentTime = currentTime % 2 === 0 ? currentTime : currentTime + 1;
 
+    // useTimeout
     useEffect(() => {
         const id = setTimeout(() => changeWidth(Math.round((currentTime + 1) / totalTime * 100)), 1000);
 

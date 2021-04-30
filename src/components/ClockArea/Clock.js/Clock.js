@@ -4,6 +4,7 @@ import { clockStates } from '../../../redux/actionCreators';
 import { ClockTime, ClockTimeWrapper, ClockWrapper } from './styled';
 
 function Clock(props) {
+    // useTimeout
     useEffect(() => {
         let id = 0;
 

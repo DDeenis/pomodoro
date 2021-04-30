@@ -9,11 +9,13 @@ import { clockStates } from '../../../redux/actionCreators';
 import useSound from 'use-sound';
 
 function TaskProgress({ tomatoesFull, tomatoSlices, clockState, setTomatoesFull, setTomatoSlices }) {
+    // useRef to styled components
     const progressBlock = useRef();
 
     const [playWorkStart] = useSound(WorkSound, { volume: 0.25 });
     const [palyRestStart] = useSound(RestSound, { volume: 0.25 });
 
+    // addEventListener to react events
     useEffect(() => {
         progressBlock.current.addEventListener('mouseenter', () => progressBlock.current.style = 'height: 156px;');
         progressBlock.current.addEventListener('mouseleave', () => progressBlock.current.style = 'height: 78px;');
