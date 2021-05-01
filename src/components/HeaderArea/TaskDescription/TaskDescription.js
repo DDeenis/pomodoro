@@ -1,21 +1,19 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
+import { number, func } from "prop-types";
 import { TaskDescriptionWrapper, TaskDescriptionText } from './styled';
 
-function TaskDescription() {
-    // useRef to styled components
-    const descrBlock = useRef();
-
-    // addEventListener to react events
-    useEffect(() => {
-        descrBlock.current.addEventListener('mouseenter', () => descrBlock.current.style = 'height: 236px;');
-        descrBlock.current.addEventListener('mouseleave', () => descrBlock.current.style = 'height: 76px;');
-    }, []);
-
+function TaskDescription({ styledHeight, expand, reset }) {
     return (
-        <TaskDescriptionWrapper ref={descrBlock}>
-            <TaskDescriptionText placeholder='Write your notes here.'></TaskDescriptionText>
+        <TaskDescriptionWrapper height={styledHeight} onMouseEnter={() => expand()} onMouseLeave={() => reset()}>
+            <TaskDescriptionText />
         </TaskDescriptionWrapper>
     );
+}
+
+TaskDescription.propTypes = {
+    styledHeight: number,
+    expand: func,
+    reset: func
 }
 
 export default TaskDescription;

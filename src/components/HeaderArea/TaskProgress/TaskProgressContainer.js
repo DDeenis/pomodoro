@@ -1,0 +1,58 @@
+import React, { useCallback, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import useSound from 'use-sound';
+import WorkSound from '../../../sounds/work-start.wav';
+import RestSound from '../../../sounds/rest-start.wav';
+import { clockStates, setTomatoesFullCreator, setTomatoSlicesCreator } from '../../../redux/actionCreators';
+import TaskProgress from './TaskProgress';
+
+function TaskProgressContainer() {
+    const { tomatoesFull, tomatoSlices, defaultHeight } = useSelector(state => state.header);
+    const { clockState } = useSelector(state => state.clock);
+
+    const dispatch = useDispatch();
+
+    const [styledHeight, setStyledHeight] = useState(defaultHeight);
+
+    const [playWorkStart] = useSound(WorkSound, { volume: 0.25 });
+    const [palyRestStart] = useSound(RestSound, { volume: 0.25 });
+
+    const expandedHeight = defaultHeight * 2;
+    const expand = useCallback(() => setStyledHeight(expandedHeight));
+    const reset = useCallback(() => setStyledHeight(defaultHeight));    
+
+    const setTomatoesFull = useCallback((newValue) => dispatch(setTomatoesFullCreator(newValue)));
+    const setTomatoSlices = useCallback((newValue) => dispatch(setTomatoSlicesCreator(newValue)));
+
+    useEffect(() => {
+        switch (clockState) {
+            case clockStates.WORK:
+                playWorkStart();
+                break;
+
+            case clockStates.REST:
+                palyRestStart();
+                setTomatoesFull(tomatoesFull + 1);
+                break;
+
+            case clockStates.STOP:
+                setTomatoSlices(tomatoSlices + 1);
+                break;
+        
+            default:
+                break;
+        }
+    }, [clockState]);
+
+    return (
+        <TaskProgress
+            tomatoesFull={tomatoesFull}
+            tomatoSlices={tomatoSlices}
+            styledHeight={styledHeight}
+            expand={expand}
+            reset={reset}
+        />
+    );
+}
+
+export default TaskProgressContainer;

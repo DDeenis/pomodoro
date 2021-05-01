@@ -3,7 +3,7 @@ import { device } from '../../../media';
 
 export const TaskDescriptionWrapper = styled.div`
     width: 415px;
-    height: 78px;
+    height: ${props => props.height + 'px'};
     background: #E7E6E1;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
     border-radius: 50px;
@@ -24,7 +24,9 @@ export const TaskDescriptionWrapper = styled.div`
     }
 `;
 
-export const TaskDescriptionText = styled.textarea`
+export const TaskDescriptionText = styled.textarea.attrs(() => ({
+    placeholder: 'Write your notes here.'
+}))`
     font-family: 'Roboto';
     font-style: normal;
     font-weight: normal;

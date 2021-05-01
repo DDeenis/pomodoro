@@ -2,7 +2,8 @@ import { actionTypes } from "./actionCreators";
 
 const initialState = {
     tomatoesFull: 0,
-    tomatoSlices: 0
+    tomatoSlices: 0,
+    defaultHeight: 78
 };
 
 const setTomatoesFull = (state, newValue) => ({ ...state, tomatoesFull: newValue });
