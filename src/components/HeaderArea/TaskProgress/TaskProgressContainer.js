@@ -18,12 +18,13 @@ function TaskProgressContainer() {
     const [palyRestStart] = useSound(RestSound, { volume: 0.25 });
 
     const expandedHeight = defaultHeight * 2;
-    const expand = useCallback(() => setStyledHeight(expandedHeight));
-    const reset = useCallback(() => setStyledHeight(defaultHeight));    
+    const expand = useCallback(() => setStyledHeight(expandedHeight), [expandedHeight]);
+    const reset = useCallback(() => setStyledHeight(defaultHeight), [defaultHeight]);    
 
-    const setTomatoesFull = useCallback((newValue) => dispatch(setTomatoesFullCreator(newValue)));
-    const setTomatoSlices = useCallback((newValue) => dispatch(setTomatoSlicesCreator(newValue)));
+    const setTomatoesFull = useCallback((newValue) => dispatch(setTomatoesFullCreator(newValue)), [dispatch]);
+    const setTomatoSlices = useCallback((newValue) => dispatch(setTomatoSlicesCreator(newValue)), [dispatch]);
 
+    // ???
     useEffect(() => {
         switch (clockState) {
             case clockStates.WORK:
@@ -42,7 +43,7 @@ function TaskProgressContainer() {
             default:
                 break;
         }
-    }, [clockState]);
+    }, [clockState, palyRestStart, playWorkStart, tomatoesFull, tomatoSlices, setTomatoSlices, setTomatoesFull]);
 
     return (
         <TaskProgress

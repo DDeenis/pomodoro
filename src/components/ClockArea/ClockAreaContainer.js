@@ -6,9 +6,9 @@ import ClockArea from "./ClockArea";
 function ClockAreaContainer() {
     const dispatch = useDispatch();
 
-    const onStop = useCallback(() => dispatch(onStopAsyncCreator()));
-    const onPause = useCallback(() => dispatch(changeClockStateCreator(clockStates.PAUSE)));
-    const onStart = useCallback(() => dispatch(changeClockStateCreator(clockStates.WORK)));
+    const onStop = useCallback(() => dispatch(onStopAsyncCreator()), [dispatch]);
+    const onPause = useCallback(() => dispatch(changeClockStateCreator(clockStates.PAUSE)), [dispatch]);
+    const onStart = useCallback(() => dispatch(changeClockStateCreator(clockStates.WORK)), [dispatch]);
 
     return (
         <ClockArea

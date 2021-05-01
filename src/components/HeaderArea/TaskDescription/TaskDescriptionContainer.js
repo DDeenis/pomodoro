@@ -6,8 +6,8 @@ function TaskDescriptionContainer() {
     const { defaultHeight } = useSelector(state => state.header);
     const [styledHeight, setStyledHeight] = useState(defaultHeight);
 
-    const expand = useCallback(() => setStyledHeight(defaultHeight * 3));
-    const reset = useCallback(() => setStyledHeight(defaultHeight));
+    const expand = useCallback(() => setStyledHeight(defaultHeight * 3), [defaultHeight]);
+    const reset = useCallback(() => setStyledHeight(defaultHeight), [defaultHeight]);
 
     return (
         <TaskDescription

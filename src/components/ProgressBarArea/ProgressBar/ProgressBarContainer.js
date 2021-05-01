@@ -10,7 +10,7 @@ function ProgressBarContainer() {
     const { currentTime, clockState } = useSelector(state => state.clock);
     const dispatch = useDispatch();
 
-    const changeWidth = useCallback((width) => dispatch(changeProgressBarCreator(width)));
+    const changeWidth = useCallback((width) => dispatch(changeProgressBarCreator(width)), [dispatch]);
 
     const currentTimeFixed = currentTime % 2 === 0 ? currentTime : currentTime + 1;
     const totalTime = clockState === clockStates.WORK ? clockTimers.workTimeSeconds : clockTimers.restTimeSeconds;

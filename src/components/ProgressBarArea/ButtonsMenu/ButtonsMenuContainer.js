@@ -10,8 +10,8 @@ function ButtonsMenuContainer() {
     const middleBtnBackground = clockState === clockStates.WORK ? '#ABDF81' : '#536162';
     const middleBtnText = clockState === clockStates.WORK ? 'Work' : 'Rest';
 
-    const onStop = useCallback(() => dispatch(onStopAsyncCreator()));
-    const onStart = useCallback(() => dispatch(changeClockStateCreator(clockStates.WORK)));
+    const onStop = useCallback(() => dispatch(onStopAsyncCreator()), [dispatch]);
+    const onStart = useCallback(() => dispatch(changeClockStateCreator(clockStates.WORK)), [dispatch]);
 
     return (
         <ButtonsMenu
