@@ -1,17 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { changeClockStateCreator, clockStates, updateTimeCreator } from "../../redux/actionCreators";
+import { changeClockStateCreator, clockStates, onStopAsyncCreator } from "../../redux/actionCreators";
 import ClockArea from "./ClockArea";
 
 function ClockAreaContainer() {
     const dispatch = useDispatch();
 
-    // redux-saga
-    const onStop = () => {
-        dispatch(changeClockStateCreator(clockStates.STOP));
-        dispatch(updateTimeCreator(0));
-    };
-
+    const onStop = () => dispatch(onStopAsyncCreator());
     const onPause = () => dispatch(changeClockStateCreator(clockStates.PAUSE));
     const onStart = () => dispatch(changeClockStateCreator(clockStates.WORK));
 

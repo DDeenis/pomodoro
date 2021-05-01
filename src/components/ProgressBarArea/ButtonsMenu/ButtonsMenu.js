@@ -1,25 +1,9 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { changeClockStateCreator, clockStates, updateTimeCreator } from '../../../redux/actionCreators';
 import MenuButton from '../MenuButton/MenuButton';
+import { func, string } from "prop-types";
 import { ButtonsMenuWrapper } from './styled';
 
-function ButtonsMenu() {
-    const clockState = useSelector(state => state.clock.clockState);
-    const dispatch = useDispatch();
-
-    const middleBtnBackground = clockState === clockStates.WORK ? '#ABDF81' : '#536162';
-    const middleBtnText = clockState === clockStates.WORK ? 'Work' : 'Rest';
-
-    // redux-saga
-    const onStop = () => {
-        dispatch(changeClockStateCreator(clockStates.STOP));
-        dispatch(updateTimeCreator(0));
-    };
-
-    // clockState ???
-    const onStart = () => dispatch(changeClockStateCreator(clockStates.WORK));
-
+function ButtonsMenu({ onStart, onStop, middleBtnBackground, middleBtnText }) {
     return (
         <ButtonsMenuWrapper>
             <MenuButton background='#314E52' text="Stop" textColor='#F2A154' onClick={onStop} />
@@ -27,6 +11,13 @@ function ButtonsMenu() {
             <MenuButton background='#F2A154' text="Start" textColor='#314E52' onClick={onStart} />
         </ButtonsMenuWrapper>
     );
+}
+
+ButtonsMenu.propTypes = {
+    onStart: func,
+    onStop: func,
+    middleBtnBackground: string,
+    middleBtnText: string
 }
 
 export default ButtonsMenu;

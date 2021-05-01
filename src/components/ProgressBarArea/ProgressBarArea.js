@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeProgressBarCreator, clockStates } from '../../redux/actionCreators';
 import { clockTimers } from '../../redux/clockReducer';
-import ButtonsMenu from './ButtonsMenu/ButtonsMenu';
+import ButtonsMenuContainer from './ButtonsMenu/ButtonsMenuContainer';
 import ProgressBar from './ProgressBar/ProgressBar';
 import { ProgressBarSection } from './styled';
 
@@ -16,7 +16,7 @@ function ProgressBarArea() {
 
     return (
         <ProgressBarSection>
-            <ButtonsMenu />
+            <ButtonsMenuContainer />
             <ProgressBar 
                 width={state.progressBar.progressWidth} 
                 changeWidth={changeWidth} 

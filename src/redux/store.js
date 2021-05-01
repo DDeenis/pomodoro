@@ -3,6 +3,7 @@ import sagaCreator from "redux-saga";
 import clockReducer from "./clockReducer";
 import headerReducer from "./headerReducer";
 import progressBarReducer from "./progressBarReducer";
+import rootSaga from "./sagas";
 
 const sagaMiddleware = sagaCreator();
 
@@ -13,6 +14,6 @@ const reducers = combineReducers({
 });
 
 const store = createStore(reducers, applyMiddleware(sagaMiddleware));
-// sagaMiddleware.run();
+sagaMiddleware.run(rootSaga);
 
 export default store;

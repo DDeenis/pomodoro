@@ -3,7 +3,8 @@ export const actionTypes = Object.freeze({
     CHANGE_CLOCK_STATE: 'CHANGE_CLOCK_STATE',
     CHANGE_PROGRESS_BAR_STATE: 'CHANGE_PROGRESS_BAR_STATE',
     SET_TOMATOES_FULL: 'SET_TOMATOES_FULL',
-    SET_TOMATO_SLICES: 'SET_TOMATO_SLICES'
+    SET_TOMATO_SLICES: 'SET_TOMATO_SLICES',
+    ON_STOP_ASYNC: 'ON_STOP_ASYNC'
 });
 
 export const clockStates = Object.freeze({
@@ -36,4 +37,8 @@ export const setTomatoesFullCreator = (newValue) => ({
 export const setTomatoSlicesCreator = (newValue) => ({
     type: actionTypes.SET_TOMATO_SLICES,
     newValue
+});
+
+export const onStopAsyncCreator = () => ({
+    type: actionTypes.ON_STOP_ASYNC
 });

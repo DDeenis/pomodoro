@@ -1,25 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { string, func, number } from "prop-types";
-import { clockStates } from '../../../redux/actionCreators';
 import { ClockTime, ClockTimeWrapper, ClockWrapper } from './styled';
 
-function Clock(props) {
-    // useTimeout
-    useEffect(() => {
-        let id = 0;
-
-        if (props.clockState != clockStates.PAUSE && props.clockState != clockStates.STOP) {
-            const updateTime = () => props.updateTime(props.currentTime + 1);
-            id = setTimeout(updateTime, 1000);
-        }
-
-        return () => clearTimeout(id);
-    });
-
+function Clock({ clockState, timeLeft }) {
     return (
-        <ClockWrapper clockState={props.clockState}>
+        <ClockWrapper clockState={clockState}>
             <ClockTimeWrapper>
-                <ClockTime clockState={props.clockState}>{props.timeLeft}</ClockTime>
+                <ClockTime clockState={clockState}>{timeLeft}</ClockTime>
             </ClockTimeWrapper>
         </ClockWrapper>
     );
