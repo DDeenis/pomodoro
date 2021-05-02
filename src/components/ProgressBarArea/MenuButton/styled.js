@@ -23,5 +23,5 @@ export const MenuButtonText = styled.span`
     font-weight: normal;
     font-size: 36px;
     transition: color .3s ease;
-    color: ${props => props.textColor};
+    color: ${({ textColor }) => textColor};
 `;

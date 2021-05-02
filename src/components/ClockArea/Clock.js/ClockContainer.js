@@ -8,13 +8,15 @@ function ClockContainer() {
     const { clockState, timeLeftFormatted, currentTime } = useSelector(state => state.clock)
     const dispatch = useDispatch();
 
-    const updateTime = useCallback((newTime) => dispatch(updateTimeCreator(newTime)));
+    const updateTime = useCallback((newTime) => dispatch(updateTimeCreator(newTime)), [dispatch]);
+
+    let timeoutFunc = () => {};
 
     if (clockState !== clockStates.PAUSE && clockState !== clockStates.STOP) {
-        useTimeout(() => updateTime(currentTime + 1), 1000, [clockState, currentTime]);
-    } else {
-        useTimeout(() => {}, 1000, [clockState, currentTime]);
+        timeoutFunc = () => updateTime(currentTime + 1);
     }
+
+    useTimeout(timeoutFunc, 1000, [clockState, currentTime]);
 
     return (
         <Clock

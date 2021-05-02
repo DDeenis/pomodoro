@@ -13,16 +13,16 @@ export const ClockWrapper = styled.div`
     border-radius: 15px;
     transition: background .3s ease;
     z-index: 1000;
-    background: ${props => {
-        switch (props.clockState) {
+    background: ${({ theme, clockState }) => {
+        switch (clockState) {
             case clockStates.STOP:
-                return '#314E52';
+                return theme.colors.clockStop;
             case clockStates.PAUSE:
-                return '#F7F6E7';
+                return theme.colors.clockPause;
             case clockStates.REST:
-                return '#536162';
+                return theme.colors.clockRest;
             default:
-                return '#ABDF81';
+                return theme.colors.clockWork;
         }
     }};
 
@@ -41,11 +41,9 @@ export const ClockTime = styled.span`
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    // font-size: 144px;
     font-size: 9rem;
-    color: #F7F6E7;
     transition: color .3s ease;
-    color: ${props => props.clockState === clockStates.PAUSE ? '#314E52' : '#F7F6E7'};
+    color: ${({ theme, clockState }) => clockState === clockStates.PAUSE ? theme.colors.clockStop : theme.colors.clockPause};
 
     @media ${device.mobileM} {
         font-size: 7rem;

@@ -3,8 +3,8 @@ import { device } from '../../../media';
 
 export const TaskDescriptionWrapper = styled.div`
     width: 415px;
-    height: ${props => props.height + 'px'};
-    background: #E7E6E1;
+    height: ${({ height }) => height + 'px'};
+    background: ${({ theme }) => theme.colors.taskBackground};
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
     border-radius: 50px;
     transition: height .3s ease;
@@ -31,11 +31,15 @@ export const TaskDescriptionText = styled.textarea.attrs(() => ({
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
-    color: #000000;
-    background: #E7E6E1;
+    color: ${({ theme }) => theme.colors.taskText};
+    background: ${({ theme }) => theme.colors.taskBackground};
     resize: none;
     border: 0;
     width: 90%;
     height: 100%;
     margin: 21px 34px;
+
+    &::placeholder {
+        color: ${({ theme }) => theme.colors.taskText};
+    }
 `;

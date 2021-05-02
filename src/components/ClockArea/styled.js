@@ -38,14 +38,14 @@ export const ClockControl = styled.div`
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25);
     border-radius: 0px 6px 6px 0px;
     cursor: pointer;
-    background-color: ${props => {
-        switch (props.controlState) {
+    background-color: ${({ theme, controlState }) => {
+        switch (controlState) {
             case 'start':
-                return '#F2A154';
+                return theme.colors.clockStart;
             case 'stop':
-                return '#314E52';
+                return theme.colors.clockStop;
             case 'pause':
-                return '#F7F6E7';
+                return theme.colors.clockPause;
         }
     }};
     background-image: ${props => {

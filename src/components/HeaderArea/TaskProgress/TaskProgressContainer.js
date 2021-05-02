@@ -14,8 +14,8 @@ function TaskProgressContainer() {
 
     const [styledHeight, setStyledHeight] = useState(defaultHeight);
 
-    const [playWorkStart] = useSound(WorkSound, { volume: 0.25 });
-    const [palyRestStart] = useSound(RestSound, { volume: 0.25 });
+    const [playWorkStart] = useSound(WorkSound, { volume: 0.15 });
+    const [palyRestStart] = useSound(RestSound, { volume: 0.15 });
 
     const expandedHeight = defaultHeight * 2;
     const expand = useCallback(() => setStyledHeight(expandedHeight), [expandedHeight]);

@@ -10,8 +10,8 @@ export const TaskProgressBlock = styled.div`
 
 export const TaskProgressWrapper = styled.div`
     width: 231px;
-    height: ${props => props.height + 'px'};
-    background: #E7E6E1;
+    height: ${({ height }) => height + 'px'};
+    background: ${({ theme }) => theme.colors.taskBackground};
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
     border-radius: 50px;
     overflow: hidden;
@@ -37,5 +37,5 @@ export const TaskProgressText = styled.p`
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
-    color: #000;
+    color: ${({ theme }) => theme.colors.taskText};
 `;
