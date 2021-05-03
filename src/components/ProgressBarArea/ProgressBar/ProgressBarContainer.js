@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeProgressBarCreator, clockStates } from '../../../redux/actionCreators';
-import { clockTimers } from '../../../redux/clockReducer';
 import useTimeout from '../../hooks/useTimeout';
 import ProgressBar from './ProgressBar';
+import {clockTimers} from "../../../redux/clockTimers";
 
 function ProgressBarContainer() {
     const { progressWidth } = useSelector(state => state.progressBar);
@@ -15,7 +15,9 @@ function ProgressBarContainer() {
     const currentTimeFixed = currentTime % 2 === 0 ? currentTime : currentTime + 1;
     const totalTime = clockState === clockStates.WORK ? clockTimers.workTimeSeconds : clockTimers.restTimeSeconds;
 
-    useTimeout(() => changeWidth(Math.round((currentTimeFixed + 1) / totalTime * 100)), 1000, [currentTimeFixed]);
+    // console.log(currentTimeFixed / totalTime * 100, currentTimeFixed, totalTime * 100)
+    const newWidth = Math.round((currentTimeFixed + 1) / totalTime * 100);
+    useTimeout(() => changeWidth(newWidth), 1000, [newWidth]);
 
     const progressBackground = clockState === clockStates.WORK ? '#ABDF81' : '#536162';
 

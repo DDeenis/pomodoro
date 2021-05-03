@@ -5,7 +5,7 @@ const initialState = {
 }
 
 function changeProgressBarState(state, newWidth) {
-    return {...state, progressWidth: newWidth};
+    return { ...state, progressWidth: newWidth };
 }
 
 function progressBarReducer(state = initialState, action) {

@@ -43,7 +43,7 @@ function TaskProgressContainer() {
             default:
                 break;
         }
-    }, [clockState, palyRestStart, playWorkStart, tomatoesFull, tomatoSlices, setTomatoSlices, setTomatoesFull]);
+    }, [clockState]);
 
     return (
         <TaskProgress
