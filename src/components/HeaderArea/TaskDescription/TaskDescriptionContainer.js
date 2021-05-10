@@ -1,25 +1,31 @@
 import React, { useCallback, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { setNotesCreator } from '../../../redux/actionCreators';
 import TaskDescription from './TaskDescription';
-import {getLocalNotes, setLocalNotes} from "../../../redux/localStorageApi";
 
 function TaskDescriptionContainer() {
-    const { defaultHeight } = useSelector(state => state.header);
+    const { defaultHeight, notes: defaultNotes } = useSelector(state => state.header);
+    const dispatch = useDispatch();
+
     const [styledHeight, setStyledHeight] = useState(defaultHeight);
+    const [notes, setNotes] = useState(defaultNotes);
 
     const expand = useCallback(() => setStyledHeight(defaultHeight * 3), [defaultHeight]);
     const reset = useCallback(() => setStyledHeight(defaultHeight), [defaultHeight]);
 
-    const defaultNotes = getLocalNotes();
-    const setNotes = (e) => setLocalNotes(e.target.value);
+    const saveNotes = () => {
+        dispatch(setNotesCreator(notes));
+        console.log(notes)
+    }
 
     return (
         <TaskDescription
             styledHeight={styledHeight}
-            defaultNotes={defaultNotes}
+            defaultNotes={notes}
             expand={expand}
             reset={reset}
             setNotes={setNotes}
+            saveNotes={saveNotes}
         />
     );
 }

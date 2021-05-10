@@ -3,9 +3,9 @@ import { ThemeProvider } from 'styled-components';
 import './App.css';
 import ClockAreaContainer from './components/ClockArea/ClockAreaContainer';
 import HeaderArea from './components/HeaderArea/HeaderArea';
+import ProgressBarArea from './components/ProgressBarArea/ProgressBarArea';
 import { StyledApp } from './styled';
 import { lightTheme } from './themes/themes';
-import ProgressBarAreaContainer from "./components/ProgressBarArea/ProgressBarAreaContainer";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
           <ClockAreaContainer />
         </main>
 
-        <ProgressBarAreaContainer />
+        <ProgressBarArea />
       </StyledApp>
     </ThemeProvider>
   );

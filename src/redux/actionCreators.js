@@ -4,6 +4,7 @@ export const actionTypes = Object.freeze({
     CHANGE_PROGRESS_BAR_STATE: 'CHANGE_PROGRESS_BAR_STATE',
     SET_TOMATOES_FULL: 'SET_TOMATOES_FULL',
     SET_TOMATO_SLICES: 'SET_TOMATO_SLICES',
+    SET_NOTES: 'SET_NOTES',
     ON_STOP_ASYNC: 'ON_STOP_ASYNC'
 });
 
@@ -41,4 +42,9 @@ export const setTomatoSlicesCreator = (newValue) => ({
 
 export const onStopAsyncCreator = () => ({
     type: actionTypes.ON_STOP_ASYNC
+});
+
+export const setNotesCreator = (notes) => ({
+    type: actionTypes.SET_NOTES,
+    notes
 });
