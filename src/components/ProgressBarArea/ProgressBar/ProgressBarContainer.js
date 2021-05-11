@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeProgressBarCreator, clockStates } from '../../../redux/actionCreators';
-import useTimeout from '../../hooks/useTimeout';
+import useTimeout from '../../../hooks/useTimeout';
 import ProgressBar from './ProgressBar';
 import {clockTimers} from "../../../redux/clockTimers";
 import { clockStateSelector, currentTimeSelector } from '../../../redux/selectors';

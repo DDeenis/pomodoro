@@ -25,7 +25,8 @@ export const TaskDescriptionWrapper = styled.div`
 `;
 
 export const TaskDescriptionText = styled.textarea.attrs(() => ({
-    placeholder: 'Write your notes here.'
+    placeholder: 'Write your notes here.',
+    autoFocus: true
 }))`
     font-family: 'Roboto';
     font-style: normal;
@@ -37,7 +38,21 @@ export const TaskDescriptionText = styled.textarea.attrs(() => ({
     border: 0;
     width: 90%;
     height: 100%;
-    margin: 21px 34px;
+
+    &::placeholder {
+        color: ${({ theme }) => theme.colors.taskText};
+    }
+`;
+
+export const TaskDescriptionContainer = styled.div`
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    color: ${({ theme }) => theme.colors.taskText};
+    background: ${({ theme }) => theme.colors.taskBackground};
+    width: 90%;
+    height: 100%;
 
     &::placeholder {
         color: ${({ theme }) => theme.colors.taskText};

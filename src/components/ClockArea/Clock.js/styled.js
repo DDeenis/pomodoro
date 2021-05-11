@@ -12,7 +12,7 @@ export const ClockWrapper = styled.div`
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     transition: background .3s ease;
-    z-index: 1000;
+    z-index: 10;
     background: ${({ theme, clockState }) => {
         switch (clockState) {
             case clockStates.STOP:

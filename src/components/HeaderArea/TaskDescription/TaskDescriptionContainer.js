@@ -9,6 +9,7 @@ function TaskDescriptionContainer() {
 
     const [styledHeight, setStyledHeight] = useState(defaultHeight);
     const [notes, setNotes] = useState(defaultNotes);
+    const [isEditing, setIsEditing] = useState(false);
 
     const expand = useCallback(() => setStyledHeight(defaultHeight * 3), [defaultHeight]);
     const reset = useCallback(() => setStyledHeight(defaultHeight), [defaultHeight]);
@@ -22,10 +23,12 @@ function TaskDescriptionContainer() {
         <TaskDescription
             styledHeight={styledHeight}
             defaultNotes={notes}
+            isEditing={isEditing}
             expand={expand}
             reset={reset}
             setNotes={setNotes}
             saveNotes={saveNotes}
+            setIsEditing={setIsEditing}
         />
     );
 }

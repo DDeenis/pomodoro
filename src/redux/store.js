@@ -3,7 +3,7 @@ import persistCombineReducers from "redux-persist/es/persistCombineReducers";
 import persistStore from "redux-persist/es/persistStore";
 import storage from 'redux-persist/lib/storage';
 import sagaCreator from "redux-saga";
-import rootReducer from "./reducers";
+import reducers from "./reducers";
 import rootSaga from "./sagas";
 
 const sagaMiddleware = sagaCreator();
@@ -13,9 +13,9 @@ const persistConfig = {
     storage,
     whitelist: ['header']
 }
-const reducers = persistCombineReducers(persistConfig, rootReducer);
+const reducersCombined = persistCombineReducers(persistConfig, reducers);
 
-const store = createStore(reducers, applyMiddleware(sagaMiddleware));
+const store = createStore(reducersCombined, applyMiddleware(sagaMiddleware));
 sagaMiddleware.run(rootSaga);
 
 export const persistor = persistStore(store);
