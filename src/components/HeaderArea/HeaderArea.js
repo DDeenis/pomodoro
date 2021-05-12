@@ -1,5 +1,5 @@
 import React from 'react';
-import ModalContainer from '../Modal/ModalContainer';
+import SettingsButton from './SettingsButton/SettingsButton';
 import { HeaderBlock } from './styled';
 import TaskDescriptionContainer from './TaskDescription/TaskDescriptionContainer';
 import TaskProgressContainer from './TaskProgress/TaskProgressContainer';
@@ -8,8 +8,8 @@ function HeaderArea() {
     return (
         <HeaderBlock>
             <TaskDescriptionContainer />
+            <SettingsButton />
             <TaskProgressContainer />
-            <ModalContainer />
         </HeaderBlock>
     );
 }

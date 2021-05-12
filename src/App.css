@@ -7,10 +7,10 @@
   width: 100vw;
   display: flex;
   flex-flow: column wrap;
-  justify-content: center;
   align-items: center;
 }
 
 main {
   height: 50vh;
+  justify-content: center;
 }

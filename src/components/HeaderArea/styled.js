@@ -6,13 +6,13 @@ export const HeaderBlock = styled.div`
     height: 20vh;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     position: relative;
 
     @media ${device.mobileM} {
         width: 100vw;
-        height: 25vh;
+        height: 35vh;
         flex-direction: column;
     }
 `;

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const ModalDarkBackground = styled.div`
+    display: ${({ isVisible }) => isVisible ? 'inherit' : 'none'};
     position: absolute;
     left: 0;
     top: 0;
@@ -12,6 +13,7 @@ export const ModalDarkBackground = styled.div`
 `;
 
 export const ModalWrapper = styled.div`
+    display: ${({ isVisible }) => isVisible ? 'inherit' : 'none'};
     position: absolute;
     width: 50vw;
     height: 60vh;
