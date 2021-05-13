@@ -14,10 +14,7 @@ function TaskDescriptionContainer() {
     const expand = useCallback(() => setStyledHeight(defaultHeight * 3), [defaultHeight]);
     const reset = useCallback(() => setStyledHeight(defaultHeight), [defaultHeight]);
 
-    const saveNotes = () => {
-        dispatch(setNotesCreator(notes));
-        console.log(notes)
-    }
+    const saveNotes = () => dispatch(setNotesCreator(notes));
 
     return (
         <TaskDescription

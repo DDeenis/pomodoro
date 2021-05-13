@@ -16,4 +16,4 @@ ProgressBar.propTypes = {
     progressBackground: string
 }
 
-export default ProgressBar;
+export default React.memo(ProgressBar);
