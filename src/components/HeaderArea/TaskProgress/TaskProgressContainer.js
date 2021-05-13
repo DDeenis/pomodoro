@@ -5,10 +5,10 @@ import WorkSound from '../../../sounds/work-start.wav';
 import RestSound from '../../../sounds/rest-start.wav';
 import { clockStates, setTomatoesFullCreator, setTomatoSlicesCreator } from '../../../redux/actionCreators';
 import TaskProgress from './TaskProgress';
-import { clockStateSelector } from '../../../redux/selectors';
+import { clockStateSelector, headerSelector } from '../../../redux/selectors';
 
 function TaskProgressContainer() {
-    const { tomatoesFull, tomatoSlices, defaultHeight } = useSelector(state => state.header);
+    const { tomatoesFull, tomatoSlices, defaultHeight } = useSelector(headerSelector);
     const clockState = useSelector(clockStateSelector);
 
     const dispatch = useDispatch();

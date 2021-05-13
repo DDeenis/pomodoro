@@ -27,4 +27,4 @@ TaskProgress.propTypes = {
     reset: func
 }
 
-export default TaskProgress;
+export default React.memo(TaskProgress);
