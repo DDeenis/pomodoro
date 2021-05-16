@@ -12,9 +12,8 @@ function SettingsButton() {
                     Settings
                 </SettingsButtonText>
             </StyledSettingsButton>
-            {
-                modalOpened && <ModalContainer openState={true} />
-            }
+
+            <ModalContainer openState={modalOpened} setOpenState={setModalOpened}>text</ModalContainer>
         </>
     );
 }

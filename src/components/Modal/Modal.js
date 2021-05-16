@@ -1,23 +1,21 @@
 import React from 'react';
 import { ModalDarkBackground, ModalWrapper } from './styled';
-import { bool } from "prop-types";
-import useModal from '../../hooks/useModal';
+import { bool, func, element } from "prop-types";
 
-function Modal({ openState }) {
-    const [isOpen, setIsOpen] = useModal(openState);
-
+function Modal({ openState, setOpenState, children }) {
     return (
-        <>
-            <ModalDarkBackground onClick={() => setIsOpen(false)} isVisible={isOpen} />
-            <ModalWrapper isVisible={isOpen}>
-                text
+        <ModalDarkBackground onClick={() => setOpenState(false)} active={openState}>
+            <ModalWrapper onClick={(e) => e.stopPropagation()} active={openState}>
+                { children }
             </ModalWrapper>
-        </>
+        </ModalDarkBackground>
     );
 }
 
 Modal.propTypes = {
-    openState: bool
+    openState: bool,
+    setOpenState: func,
+    children: element
 }
 
 export default Modal;
