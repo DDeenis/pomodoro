@@ -12,3 +12,7 @@ export function getSeconds(seconds) {
 export function getMinutes(seconds) {
     return Math.floor(seconds / 60);
 }
+
+export function minutesToSeconds(minutes) {
+    return minutes * 60;
+}

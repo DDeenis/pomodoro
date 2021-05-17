@@ -1,6 +1,6 @@
 import { clockStates } from "./clockStates";
-import {clockTimers} from "./clockTimers";
 import {formatTime, getMinutes, getSeconds} from "./formatTime";
+import { clockTimers } from "./settingsResucer";
 
 const UPDATE_TIME = 'UPDATE_TIME';
 const CHANGE_CLOCK_STATE = 'CHANGE_CLOCK_STATE';

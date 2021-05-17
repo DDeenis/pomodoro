@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ModalContainer from '../../Modal/ModalContainer';
+import SettingsContainer from '../Settings/SettingsContainer';
 import { SettingsButtonText, StyledSettingsButton } from './styled';
 
 function SettingsButton() {
@@ -13,7 +14,9 @@ function SettingsButton() {
                 </SettingsButtonText>
             </StyledSettingsButton>
 
-            <ModalContainer openState={modalOpened} setOpenState={setModalOpened}>text</ModalContainer>
+            <ModalContainer openState={modalOpened} setOpenState={setModalOpened}>
+                <SettingsContainer />
+            </ModalContainer>
         </>
     );
 }
