@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import useSound from 'use-sound';
 import WorkSound from '../../../sounds/work-start.wav';
 import RestSound from '../../../sounds/rest-start.wav';
-import { clockStates, setTomatoesFullCreator, setTomatoSlicesCreator } from '../../../redux/actionCreators';
 import TaskProgress from './TaskProgress';
 import { clockStateSelector, headerSelector } from '../../../redux/selectors';
+import { clockStates } from '../../../redux/clockStates';
+import { setTomatoesFullCreator, setTomatoSlicesCreator } from '../../../redux/headerReducer';
 
 function TaskProgressContainer() {
     const { tomatoesFull, tomatoSlices, defaultHeight } = useSelector(headerSelector);

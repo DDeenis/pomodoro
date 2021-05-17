@@ -11,7 +11,7 @@ const sagaMiddleware = sagaCreator();
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['header']
+    whitelist: ['header', 'settings']
 }
 const reducersCombined = persistCombineReducers(persistConfig, reducers);
 

@@ -1,4 +1,6 @@
-import { actionTypes } from "./actionCreators";
+const SET_TOMATOES_FULL = 'SET_TOMATOES_FULL';
+const SET_TOMATO_SLICES = 'SET_TOMATO_SLICES';
+const SET_NOTES = 'SET_NOTES';
 
 const initialState = {
     tomatoesFull: 0,
@@ -8,23 +10,25 @@ const initialState = {
 };
 
 const setTomatoesFull = (state, newValue) => ({ ...state, tomatoesFull: newValue });
-
 const setTomatoSlices = (state, newValue) => ({ ...state, tomatoSlices: newValue });
-
 const setNotes = (state, notes) => ({ ...state, notes });
 
 export default function headerReducer(state = initialState, action) {
     switch (action.type) {
-        case actionTypes.SET_TOMATOES_FULL:
+        case SET_TOMATOES_FULL:
             return setTomatoesFull(state, action.newValue);
 
-        case actionTypes.SET_TOMATO_SLICES:
+        case SET_TOMATO_SLICES:
             return setTomatoSlices(state, action.newValue);
 
-        case actionTypes.SET_NOTES:
+        case SET_NOTES:
             return setNotes(state, action.notes);
     
         default:
             return state;
     }
 }
+
+export const setTomatoesFullCreator = (newValue) => ({ type: SET_TOMATOES_FULL, newValue });
+export const setTomatoSlicesCreator = (newValue) => ({ type: SET_TOMATO_SLICES, newValue });
+export const setNotesCreator = (notes) => ({ type: SET_NOTES, notes });

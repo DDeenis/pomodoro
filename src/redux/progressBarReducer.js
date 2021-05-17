@@ -1,4 +1,4 @@
-import { actionTypes } from "./actionCreators";
+const CHANGE_PROGRESS_BAR_STATE = 'CHANGE_PROGRESS_BAR_STATE';
 
 const initialState = {
     progressWidth: 0
@@ -8,9 +8,9 @@ function changeProgressBarState(state, newWidth) {
     return { ...state, progressWidth: newWidth };
 }
 
-function progressBarReducer(state = initialState, action) {
+export default function progressBarReducer(state = initialState, action) {
     switch (action.type) {
-        case actionTypes.CHANGE_PROGRESS_BAR_STATE:
+        case CHANGE_PROGRESS_BAR_STATE:
             return changeProgressBarState(state, action.width);
     
         default:
@@ -18,4 +18,4 @@ function progressBarReducer(state = initialState, action) {
     }
 }
 
-export default progressBarReducer;
+export const changeProgressBarCreator = (width) => ({ type: CHANGE_PROGRESS_BAR_STATE, width });

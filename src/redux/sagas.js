@@ -1,5 +1,8 @@
 import { all, put, takeEvery } from "redux-saga/effects";
-import { actionTypes, changeClockStateCreator, clockStates, updateTimeCreator } from "./actionCreators";
+import { changeClockStateCreator, updateTimeCreator } from "./clockReducer";
+import { clockStates } from "./clockStates";
+
+const ON_STOP_ASYNC = 'ON_STOP_ASYNC';
 
 function* onStopAsync() {
     yield put(changeClockStateCreator(clockStates.STOP));
@@ -7,7 +10,7 @@ function* onStopAsync() {
 }
 
 function* watchOnStop() {
-    yield takeEvery(actionTypes.ON_STOP_ASYNC, onStopAsync);
+    yield takeEvery(ON_STOP_ASYNC, onStopAsync);
 }
 
 export default function* rootSaga() {
@@ -15,3 +18,5 @@ export default function* rootSaga() {
         watchOnStop()
     ]);
 }
+
+export const onStopAsyncCreator = () => ({ type: ON_STOP_ASYNC });

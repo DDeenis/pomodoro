@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setNotesCreator } from '../../../redux/actionCreators';
+import { setNotesCreator } from '../../../redux/headerReducer';
 import TaskDescription from './TaskDescription';
 
 function TaskDescriptionContainer() {

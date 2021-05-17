@@ -1,6 +1,9 @@
-import {actionTypes, clockStates} from "./actionCreators";
+import { clockStates } from "./clockStates";
 import {clockTimers} from "./clockTimers";
 import {formatTime, getMinutes, getSeconds} from "./formatTime";
+
+const UPDATE_TIME = 'UPDATE_TIME';
+const CHANGE_CLOCK_STATE = 'CHANGE_CLOCK_STATE';
 
 const initialState = {
     timeLeftFormatted: formatTime(0, 0),
@@ -32,13 +35,16 @@ function changeClockState(state, newState) {
 
 export default function clockReducer(state = initialState, action) {
     switch (action.type) {
-        case actionTypes.UPDATE_TIME:
+        case UPDATE_TIME:
             return updateClock(state, action.time, state.clockState);
 
-        case actionTypes.CHANGE_CLOCK_STATE:
+        case CHANGE_CLOCK_STATE:
             return changeClockState(state, action.clockState);
 
         default:
             return state;
     }
 }
+
+export const updateTimeCreator = (newTime) => ({ type: UPDATE_TIME, time: newTime });
+export const changeClockStateCreator = (newState) => ({ type: CHANGE_CLOCK_STATE, clockState: newState });

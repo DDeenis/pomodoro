@@ -1,6 +1,8 @@
 import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { changeClockStateCreator, clockStates, onStopAsyncCreator } from "../../redux/actionCreators";
+import { changeClockStateCreator } from '../../redux/clockReducer';
+import { clockStates } from '../../redux/clockStates';
+import { onStopAsyncCreator } from '../../redux/sagas';
 import ClockArea from "./ClockArea";
 
 function ClockAreaContainer() {

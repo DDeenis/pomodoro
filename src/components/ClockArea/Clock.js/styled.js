@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { device } from '../../../media';
-import { clockStates } from '../../../redux/actionCreators';
+import { clockStates } from '../../../redux/clockStates';
 
 export const ClockWrapper = styled.div`
     width: 40vw;
